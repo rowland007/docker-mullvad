@@ -17,4 +17,4 @@ COPY *.sh /
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/opt/Mullvad\ VPN/resources/mullvad-daemon -v"]
+CMD ["mullvad-daemon -v"]
