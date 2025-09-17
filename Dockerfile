@@ -17,4 +17,3 @@ COPY *.sh /
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["mullvad-daemon -v"]
