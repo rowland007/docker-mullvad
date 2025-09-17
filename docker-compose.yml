@@ -1,0 +1,11 @@
+services:
+    mullvad:
+        image: oblique/mullvad
+        container_name: mullvad
+        hostname: mullvad
+        restart: always
+        privileged: true
+        volumes:
+            - mullvad_config:/config
+volumes:
+    mullvad_config:
