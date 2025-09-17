@@ -1,8 +1,9 @@
-# \<Repo Name>
+# Docker-Mullvad
 
-![MkDocs Deployment Status](https://github.com/rowland007/template-repository/actions/workflows/mkdocs.yml/badge.svg)  [![GitKraken Shield](https://img.shields.io/badge/Made%20With-GitKraken%20Git%20Tools-teal?style=plastic&logo=gitkraken)](https://www.gitkraken.com/invite/54HeFuDe)
+![Docker Image Status](https://github.com/rowland007/docker-mullvad/actions/workflows/docker-build.yml/badge.svg)  
+![MkDocs Deployment Status](https://github.com/rowland007/docker-mullvad/actions/workflows/mkdocs.yml/badge.svg)  
+[![GitKraken Shield](https://img.shields.io/badge/Made%20With-GitKraken%20Git%20Tools-teal?style=plastic&logo=gitkraken)](https://www.gitkraken.com/invite/54HeFuDe)
 
-[\<Repo Name>](https://rowland007.github.io/template-repository/) by [Randall Rowland](https://randyrowland.me) is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1) <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
 
 # Overview
 
@@ -10,38 +11,52 @@ A repository template copies all of its settings and content over to newly creat
 
 # Configuration
 
-## Settings
+## Setup Mullvad VPN the first time only
 
-After you've cloned the *new* repo, go into `Settings` and on the left handside, look for `Pages`. Make your settings look like the following:
+```bash
+docker compose up -d mullvad
+docker compose exec mullvad bash
+```
 
-### Source
+### Inside of the container
 
-`Deploy from a branch`
+```bash
+mullvad relay set tunnel-protocol wireguard
+mullvad always-require-vpn set on
+mullvad auto-connect set on
+mullvad account login [ACCOUNT_NUMBER]
+mullvad connect
+exit
+```
 
-### Branch
+### Out of the container
 
-`gh-pages`  :file_folder:`/(root)`
+```bash
+docker compose down
+```
 
-## Files
+## After first time setup
 
-This repository includes the following files
+### Start it
 
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributing](CONTRIBUTING.md)
-- [License](LICENSE.md)
-- [Readme](README.md)
+```bash
+docker compose up -d
+```
 
-- [Github Workflow](.github/workflows/ci.yml)
-    - This workflow watches the master branch and every time a commit is made, it uses the [mkdocs.yml](mkdocs.yml) file and the `docs/` folder to build mkdocs static website and deploy the repos documentation to the `gh-pages` branch automatically. The documentation can then be viewd at `https://<username>.github.io/<repo-name>/`. For example, this repo's documentation is located at [https://rowland007.github.io/template-repository/](https://rowland007.github.io/template-repository/).
+## Use VPN from another container
 
-## Branches
+### Docker Run
 
-This repository initializes two branches, `master` and `develop`.
+For `docker run`, use `--net=container:mullvad_vpn`, for example:
 
-# Benefits
+```bash
+docker run -it --rm --net=container:mullvad alpine
+```
 
-:white_check_mark: Spend less time repeating code   
-:white_check_mark: Focus on building new things   
-:white_check_mark: Less manual configuration   
-:white_check_mark: Sharing boilerplate code across codebase   
-:white_check_mark: Every template has a new url endpoint called **/generate**   
+## Docker Compose
+
+Add `network_mode: service:mullvad` to a service's configuration. For an example, see [vpn-example](https://github.com/oblique/dockerfiles/blob/master/composefiles/vpn-example/docker-compose.yml)
+
+---
+
+This Dockerfile is based on [oblique/mullvad](https://github.com/oblique/dockerfiles/tree/master/mullvad).
