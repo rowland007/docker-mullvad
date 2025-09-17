@@ -1,5 +1,6 @@
 # Docker-Mullvad
 
+![Mullvad Version](https://img.shields.io/badge/Version-2025.9-teal?style=plastic&logo=mullvad)  
 ![Docker Image Status](https://github.com/rowland007/docker-mullvad/actions/workflows/docker-build.yml/badge.svg)  
 ![MkDocs Deployment Status](https://github.com/rowland007/docker-mullvad/actions/workflows/mkdocs.yml/badge.svg)  
 [![GitKraken Shield](https://img.shields.io/badge/Made%20With-GitKraken%20Git%20Tools-teal?style=plastic&logo=gitkraken)](https://www.gitkraken.com/invite/54HeFuDe)
@@ -7,7 +8,7 @@
 
 # Overview
 
-A repository template copies all of its settings and content over to newly created repositories in that project. Utilizing this feature allows users to manage settings centrally & ensure that your repositories are always correctly configured. There is no need to define certain settings all over again. It includes branches and file (README, LICENSE, .gitignore, and .github/workflows) in the template repository every new repository will automatically have. The feature will mirror the content from the template to the new repositories.
+Your IP address is used to identify you, track you, and map your online life. Step 1 in taking back your personal privacy online is masking it with a trustworthy VPN. This Docker image uses the latest version of the [Mullvad VPN for Linux](https://mullvad.net/en/download/vpn/linux) so you can have other Docker containers use its VPN connection.
 
 # Configuration
 
