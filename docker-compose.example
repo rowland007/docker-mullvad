@@ -1,6 +1,8 @@
 services:
     mullvad:
-        image: oblique/mullvad
+        image: ghcr.io/rowland007/docker-mullvad:latest
+        container_name: mullvad
+        hostname: mullvad
         restart: always
         privileged: true
         volumes:
