@@ -11,5 +11,7 @@ RUN apt update && \
 
 VOLUME /config
 
+COPY *.sh /
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/opt/Mullvad\ VPN/resources/mullvad-daemon -v"]
