@@ -1,6 +1,7 @@
 FROM debian
 
-RUN apt update && \
+RUN set -ex; \
+    apt update && \
     apt install -y curl dbus && \
     curl -L -o mullvad.deb https://mullvad.net/download/app/deb/latest && \
     apt install -y ./mullvad.deb && \
@@ -12,6 +13,8 @@ RUN apt update && \
 VOLUME /config
 
 COPY *.sh /
+
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/opt/Mullvad\ VPN/resources/mullvad-daemon -v"]
