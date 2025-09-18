@@ -17,6 +17,9 @@ Your IP address is used to identify you, track you, and map your online life. St
 1. Open the `.env` file or create your own.
 2. Remove the `changeme` and add your account number (or)
 3. Add `MULLVAD_ACCOUNT_TOKEN=` to your own file and add your account number after the `=`
+4. Start the container with `docker compose up mullvad`
+5. Restart the container when it becomes unreponsive, you'll see an error about "*Failed to generate tunnel parameters*"
+    (For some reason, it fails to connect the first time.)
 
 ## After first time setup
 
