@@ -1,7 +1,8 @@
-FROM debian
+FROM debian:stable-slim
 
 RUN set -ex; \
     apt update && \
+    apt upgrade -y && \
     apt install -y curl dbus && \
     curl -L -o mullvad.deb https://mullvad.net/download/app/deb/latest && \
     apt install -y ./mullvad.deb && \
