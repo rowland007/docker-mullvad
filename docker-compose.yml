@@ -3,6 +3,8 @@ services:
         image: ghcr.io/rowland007/docker-mullvad:latest
         container_name: mullvad
         hostname: mullvad
+        environment:
+           - ${MULLVAD_ACCOUNT_TOKEN}        
         restart: always
         privileged: true
         volumes:

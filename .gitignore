@@ -13,3 +13,5 @@
 ### Mkdocs ###
 site/
 config_test/
+
+.env
