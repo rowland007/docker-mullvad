@@ -14,27 +14,9 @@ Your IP address is used to identify you, track you, and map your online life. St
 
 ## Setup Mullvad VPN the first time only
 
-```bash
-docker compose up -d mullvad
-docker compose exec mullvad bash
-```
-
-### Inside of the container
-
-```bash
-mullvad relay set tunnel-protocol wireguard
-mullvad always-require-vpn set on
-mullvad auto-connect set on
-mullvad account login [ACCOUNT_NUMBER]
-mullvad connect
-exit
-```
-
-### Out of the container
-
-```bash
-docker compose down
-```
+1. Open the `.env` file or create your own.
+2. Remove the `changeme` and add your account number (or)
+3. Add `MULLVAD_ACCOUNT_TOKEN=` to your own file and add your account number after the `=`
 
 ## After first time setup
 
@@ -56,7 +38,7 @@ docker run -it --rm --net=container:mullvad alpine
 
 ## Docker Compose
 
-Add `network_mode: service:mullvad` to a service's configuration. For an example, see [vpn-example](https://github.com/oblique/dockerfiles/blob/master/composefiles/vpn-example/docker-compose.yml)
+Add `network_mode: service:mullvad` to a service's configuration. For an example, see [vpn-example](https://github.com/rowland007/docker-mullvad/blob/master/docker-compose.example)
 
 ---
 
