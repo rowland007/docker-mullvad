@@ -12,6 +12,15 @@
 
 ### Mkdocs ###
 site/
+
+### Docker Build ###
 config_test/
 
+### Docker Environment ###
 .env
+
+### Python venv for MKdocs ###
+docs/bin/
+docs/lib/
+docs/lib64
+docs/pyvenv.cfg

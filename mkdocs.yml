@@ -1,26 +1,24 @@
 # Project information
-site_name: 'Template Repository'
+site_name: 'Docker Mullvad'
 site_description: 'Used to create new project sites with automated documentation from Mkdocs'
 site_author: 'Randy Rowland'
-site_url: 'https://rowland007.github.io/template-repository/'
+site_url: 'https://rowland007.github.io/docker-mullvad/'
 
 # Repository
 repo_name: 'Randy Rowland'
 repo_url: 'https://github.com/rowland007/'
 
 # Copyright
-copyright: 'Copyright &copy; 2021-2022 Randall Rowland<br>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
+copyright: 'Copyright &copy; 2021-2025 Randall Rowland<br>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
 
 # Navigation Menu
 nav:
     - Overview: 'index.md'
-    - How to use the template:
-        'Overview': 'template/index.md'
-        'More Info': 'template/info.md'
-    - About Mkdocs:
-        'Overview': 'mkdocs/index.md'
-    - Documentation Style:
-        'Overview': 'style/index.md'
+    - How to build your own image: 'building/index.md'
+    - Run with Docker: 'docker/index.md'
+    - Run with Docker Compose: 'docker-compose/index.md'
+    - Run with Docker Swarm: 'docker-swarm/index.md'
+    - How to use the container: 'use-cases/index.md'
     - Appendix 1 - Resources: 'resources.md'
 
 # Configuration
@@ -50,8 +48,6 @@ extra:
       link: https://randyrowland.me
     - icon: fontawesome/brands/github
       link: https://github.com/rowland007
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/randarxj7
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/randall-rowland-jr
     - icon: fontawesome/brands/reddit-alien
@@ -60,37 +56,35 @@ extra:
 # Extensions
 markdown_extensions:
   - abbr
-  - pymdownx.critic
-  - pymdownx.caret
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
   - md_in_html
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+  - tables
   - pymdownx.arithmatex:
       generic: true
-  - attr_list
-  - tables
-  - pymdownx.snippets
-  - admonition
+  - pymdownx.betterem
+  - pymdownx.blocks.caption
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
+      linenums: true
+      use_pygments: true
+      auto_title: true
+  - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.superfences:
-      custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
-  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-  - footnotes
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
