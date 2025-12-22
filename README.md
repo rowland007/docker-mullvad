@@ -1,7 +1,7 @@
 # Docker-Mullvad
 
 ![Mullvad Version](https://img.shields.io/badge/Version-2025.14-teal?style=plastic&logo=mullvad)  
-![Docker Image Status](https://github.com/rowland007/docker-mullvad/actions/workflows/docker-build.yml/badge.svg)  
+![Docker Image Status](https://github.com/rowland007/docker-mullvad/actions/workflows/docker-build.yml/badge.svg?branch=2025.14)  
 ![MkDocs Deployment Status](https://github.com/rowland007/docker-mullvad/actions/workflows/mkdocs.yml/badge.svg)  
 [![GitKraken Shield](https://img.shields.io/badge/Made%20With-GitKraken%20Git%20Tools-teal?style=plastic&logo=gitkraken)](https://www.gitkraken.com/invite/54HeFuDe)
 
