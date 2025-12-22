@@ -1,16 +1,36 @@
 name: Build and Push Docker Image
 
-on:
-  push:
-    branches:
-      - develop
+on: [push]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
-  build:
+  build-and-push-image:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Log in to DHI Container Registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: dhi.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.DHI_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build the Docker image
+        run: |
+          docker build . -t ghcr.io/${{ github.repository }}:dev
+          docker build . -t ghcr.io/${{ github.repository }}:2025.14
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
@@ -18,14 +38,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build the Docker image
-        env:
-          DHI: ${{ secrets.DHI_TOKEN }}
-        run: |
-          sudo docker login -u ${{ github.actor }} -p "$DHI"
-          docker build . -t ghcr.io/${{ github.repository }}:dev
-          docker build . -t ghcr.io/${{ github.repository }}:2025.14
 
       - name: Push the Docker image
         run: |
