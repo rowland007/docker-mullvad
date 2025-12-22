@@ -23,8 +23,8 @@ jobs:
         env:
           DHI: ${{ secrets.DHI_TOKEN }}
         run: |
-          docker login -u ${{ github.actor }} -p "$DHI" && \
-          docker build . -t ghcr.io/${{ github.repository }}:dev && \
+          sudo docker login -u ${{ github.actor }} -p "$DHI"
+          docker build . -t ghcr.io/${{ github.repository }}:dev
           docker build . -t ghcr.io/${{ github.repository }}:2025.14
 
       - name: Push the Docker image
