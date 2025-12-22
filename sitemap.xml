@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/resources/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/building/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/docker/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/docker-compose/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/docker-swarm/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+    <url>
+         <loc>https://rowland007.github.io/docker-mullvad/use-cases/</loc>
+         <lastmod>2025-12-22</lastmod>
+    </url>
+</urlset>
