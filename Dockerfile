@@ -1,12 +1,14 @@
-FROM dhi.io/debian-base:trixie
+FROM dhi.io/debian-base:trixie-debian13-dev
 
 RUN set -ex; \
-    apt-get update && \
-    apt-get install -y curl dbus && \
+    apt update && \
+    apt install -y curl dbus && \
     curl -L -o mullvad.deb https://mullvad.net/download/app/deb/latest && \
     apt install -y ./mullvad.deb && \
-    rm -f mullvad.deb \
-    apt-get purge -y curl
+    apt purge -y curl; \
+    apt autoremove -y; \
+    apt autoclean -y; \
+    rm -rf mullvad.deb /var/lib/apt/lists/*
 
 VOLUME /config
 
