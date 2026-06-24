@@ -2,6 +2,8 @@
 
 export MULLVAD_SETTINGS_DIR=/config
 
+mkdir -p /var/log/mullvad-vpn && chmod 0777 /var/log/mullvad-vpn
+
 # Start the daemon
 mullvad-daemon &
 sleep 5

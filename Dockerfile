@@ -58,6 +58,7 @@ RUN set -euo pipefail; \
 FROM dhi.io/debian-base:trixie-debian13
 
 COPY --from=builder /staging/root/ /
+COPY --from=builder --chmod=0777 /staging/root/var/log/mullvad-vpn /var/log/mullvad-vpn
 
 VOLUME /config
 
