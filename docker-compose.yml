@@ -4,10 +4,10 @@ services:
         container_name: mullvad
         hostname: mullvad
         environment:
-           - - MULLVAD_ACCOUNT_TOKEN=${MULLVAD_ACCOUNT_TOKEN}        
+          - MULLVAD_ACCOUNT_TOKEN=${MULLVAD_ACCOUNT_TOKEN}        
         restart: always
         privileged: true
         volumes:
-            - mullvad_config:/config
+          - mullvad_config:/config
 volumes:
     mullvad_config:
